@@ -10,7 +10,6 @@ const Query = ({label, type,onValueChecked}) => {
         onValueChecked({valueInput: nameInput, check: checked})
     }
 
-    //Extraemos el valor de message
     //Obtenemos el input de terminos y condiciones
     //Generamos alertas
     //Generamos encuadres cuando una caja se selecciona

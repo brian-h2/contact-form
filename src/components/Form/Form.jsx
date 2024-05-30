@@ -2,13 +2,18 @@ import Message from "../form-components/message-text/message";
 import Query from "../form-components/query-field/query";
 import Dates from "../form-components/text-field/dates";
 import Button from "../form-components/button/Button";
+import ValueInput from '../form-components/value-input/value-input';
 import './form.css'
 import { useState } from "react";
 
 const Form = () => {
 
-    const [values, setValue] = useState('')
-
+    //Values of txt
+    const [values, setValue] = useState()
+    const [valueInputName,setValueInput] = useState('')
+    const [textValue, setTextValue] = useState()
+    const [checkLastValue, setCheckLastValue] = useState()
+    
     const handleEventChange = ({ name, value }) => {
         setValue(prevValues => ({
             ...prevValues,
@@ -16,13 +21,31 @@ const Form = () => {
         }));
     };
 
+    //Group Inputs
     const handleEventChecked = ({valueInput,check}) => {
-        console.log(valueInput,check)
+        setValueInput({
+            [valueInput]: check,
+        })
     }
 
+    //CheckBoxLast
+    const handleEventCheckedInput = (checkValue) => {
+        setCheckLastValue(checkValue)
+    }
+
+    //Message
+    const handleEventTextArea = ({text}) => {
+        setTextValue(text)
+    }
+
+    //Evaluate Inputs
     const handleSubmit = (e) => {
         e.preventDefault()
-        
+       textValue.length < 5 ? alert("El text debe ser mayor a 5 caracteres") : true
+       console.log(valueInputName)
+       console.log(textValue)
+       console.log(values)
+       console.log(checkLastValue)
     }
 
     return (
@@ -31,8 +54,7 @@ const Form = () => {
             <Dates 
             label="First Name"
             name="name"  
-            type="text" 
-            values={values.name} 
+            type="text"
             onChangeEvent= {handleEventChange}
             />
             <Dates
@@ -56,12 +78,13 @@ const Form = () => {
 
             <Message 
             label = "Message"
+            onChangeTextArea={handleEventTextArea}
             />
 
-            <Dates 
+            <ValueInput 
             label="I consent to being contacted by the team"
             type= "checkbox"
-            onChangeEvent= {handleEventChange} 
+            onValueInput={handleEventCheckedInput}
             />
             
             <Button onClick={handleSubmit}/>
