@@ -1,8 +1,8 @@
 import { useState } from "react"
 
-const Query = ({label, type,onValueChecked}) => {
+const Query = ({label, type, onValueChecked}) => {
 
-    const [checked,setChecked] = useState(!!true)
+    const [checked,setChecked] = useState(true)
 
     const handleValueQuery = (e) => {
         const nameInput = e.target.value;

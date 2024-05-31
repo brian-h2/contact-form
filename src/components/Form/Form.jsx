@@ -10,23 +10,25 @@ const Form = () => {
 
     //Values of txt
     const [values, setValue] = useState()
-    const [valueInputName,setValueInput] = useState('')
-    const [textValue, setTextValue] = useState()
+    const [valueInputName,setValueInput] = useState({})
+    const [textValue, setTextValue] = useState('')
     const [checkLastValue, setCheckLastValue] = useState()
     
+
+
     const handleEventChange = ({ name, value }) => {
-        setValue(prevValues => ({
-            ...prevValues,
-            [name]: value
-        }));
+        setValue({
+             [name]: value,
+        });
     };
 
     //Group Inputs
-    const handleEventChecked = ({valueInput,check}) => {
+    const handleEventChecked = ({ valueInput, check }) => {
         setValueInput({
-            [valueInput]: check,
-        })
+            [valueInput]: check
+        });
     }
+
 
     //CheckBoxLast
     const handleEventCheckedInput = (checkValue) => {
@@ -41,12 +43,78 @@ const Form = () => {
     //Evaluate Inputs
     const handleSubmit = (e) => {
         e.preventDefault()
-       textValue.length < 5 ? alert("El text debe ser mayor a 5 caracteres") : true
-       console.log(valueInputName)
-       console.log(textValue)
-       console.log(values)
-       console.log(checkLastValue)
+        evaluateInputs()   
     }
+
+    const evaluateInputs = () => {
+       
+        //Extraemos el valor del objeto
+        const valueInputs = Object.keys(valueInputName)
+
+        console.log(valueInputs)
+
+        if(valueInputs == '') {
+            alert("Seleccione una opcion")
+            return;
+        }  else {
+            alert("Usted selecciono " + valueInputs)
+        }
+        
+        if(textValue.length < 5 ) {
+            Toastify({
+                text: "Verifique el mensaje, debe contener al menos 10 letras", 
+                duration: 1500,
+                gravity: "top", 
+                position: "center", 
+                stopOnFocus: true, 
+                style: {
+                    background: "linear-gradient(180deg, #854dff, #dedede)",
+                  },
+            }).showToast();
+            return;
+        } 
+        else {
+            setTextValue(textValue)
+           
+        }
+
+        if(values.name == "" || values.surname == "" || values.email == "") {
+            Toastify({
+                text: "Verifique los datos ingresados", 
+                duration: 1500,
+                gravity: "top", 
+                position: "center", 
+                stopOnFocus: true, 
+                style: {
+                    background: "linear-gradient(180deg, #854dff, #dedede)",
+                  },
+            }).showToast();
+            return;
+        } else {
+            setValue(values)   
+        }
+
+        if(checkLastValue == true) {
+            setCheckLastValue(checkLastValue)
+        } else {
+            Toastify({
+                text: "Verifique los terminos", 
+                duration: 1500,
+                gravity: "top", 
+                position: "center", 
+                stopOnFocus: true, 
+                style: {
+                    background: "linear-gradient(180deg, #854dff, #dedede)",
+                  },
+            }).showToast();
+            return;
+        }     
+      
+    }
+
+    const resetResults = () => {
+        setTextValue('');       
+    };
 
     return (
         <form onSubmit={handleSubmit}  >
@@ -56,6 +124,7 @@ const Form = () => {
             name="name"  
             type="text"
             onChangeEvent= {handleEventChange}
+            required
             />
             <Dates
             label="Last Name"
