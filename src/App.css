@@ -1,0 +1,26 @@
+*{
+    box-sizing: content-box;
+    padding: 0px;
+    margin: 0px;
+
+}
+
+@font-face {
+    font-family: 'Karla-Static';
+    src: url('assets/fonts/static/Karla-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Karla-Bold';
+    src: url('assets/fonts/Karla-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Karla-Italic';
+    src: url('assets/fonts/Karla-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Karla-Variable';
+    src: url('assets/fonts/Karla-VariableFont_wght.ttf') format('truetype');
+}

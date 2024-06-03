@@ -1,0 +1,12 @@
+button{
+    
+    height: 3rem;
+    width:90%;
+    margin: 12px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    font-family: 'Karla-Italic';
+    background-color: rgb(46, 151, 114);
+}

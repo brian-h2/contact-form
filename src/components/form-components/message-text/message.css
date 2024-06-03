@@ -1,0 +1,12 @@
+.message-body{
+    display: flex;
+    flex-direction: column;
+}
+
+.message-body textarea{
+    margin: 10px 0px;
+    height: 10rem;
+    border-radius: 10px;
+    border: 1px solid rgb(139, 165, 156);
+
+}

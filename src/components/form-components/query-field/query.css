@@ -1,0 +1,21 @@
+.query{
+    margin-bottom: 12px;
+}
+
+.query .query-options{
+    margin-top: 12px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: start;
+    border-radius: 10px;
+    border: 1px solid rgb(139, 165, 156);
+    height: 3rem;
+    padding-left: 20px;
+    font-weight: 500;
+}
+
+.query .query-options label{
+    margin-left: 12px ;
+}
+

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './dates.css'
 
 const Dates = ({label, name, type, onChangeEvent}) =>  {
 
@@ -9,13 +10,13 @@ const Dates = ({label, name, type, onChangeEvent}) =>  {
         const newValue = e.target.value;
         const newName = e.target.name;
         setValue(newValue)
-        onChangeEvent({ valueInput: newName, check: newValue })
+        onChangeEvent({ name: newName, value: newValue })
        
     }
 
     return (
-        <div>
-            <label>{label}</label>
+        <div className="box-dates">
+            <label>{label} *</label>
             <input type={type} value={value} name={name} onChange={handleEvenSubmit}/>
         </div>
     )

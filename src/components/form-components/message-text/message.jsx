@@ -1,17 +1,21 @@
 import { useState } from "react";
-
+import './message.css'
 const Message = ({label, onChangeTextArea}) => {
 
     const [text,setText] = useState('')
 
     const handleEventText = (e) => {
         setText(e.target.value)
-        onChangeTextArea({text})
+        if(text == "") {
+            alert("Escriba un mensaje")
+        } else {
+            onChangeTextArea({text})
+        }
     }
 
     return (
-        <div>
-            <label>{label}</label>
+        <div className="message-body">
+            <label>{label} *</label>
             <textarea value={text} onChange={handleEventText}> </textarea>
         </div>
         

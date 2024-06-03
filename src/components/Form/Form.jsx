@@ -5,8 +5,11 @@ import Button from "../form-components/button/Button";
 import ValueInput from '../form-components/value-input/value-input';
 import './form.css'
 import { useState } from "react";
+import Profile from "../form-components/profile/profile";
 
 const Form = () => {
+
+    const [isClicked, setIsClicked] = useState(false)
 
     //Values of txt
     const [values, setValue] = useState()
@@ -14,12 +17,14 @@ const Form = () => {
     const [textValue, setTextValue] = useState('')
     const [checkLastValue, setCheckLastValue] = useState()
     
-
+    //Generamos encuadres cuando una caja se selecciona
+    //Revisar que mensaje se muestra aunque esta vacio
 
     const handleEventChange = ({ name, value }) => {
         setValue({
-             [name]: value,
-        });
+            ...values,
+            [name] : value
+        })
     };
 
     //Group Inputs
@@ -43,24 +48,25 @@ const Form = () => {
     //Evaluate Inputs
     const handleSubmit = (e) => {
         e.preventDefault()
-        evaluateInputs()   
+        evaluateInputs() ? alert("Mensaje enviado correctamente") : false
     }
 
     const evaluateInputs = () => {
-       
+
         //Extraemos el valor del objeto
         const valueInputs = Object.keys(valueInputName)
 
-        console.log(valueInputs)
-
         if(valueInputs == '') {
             alert("Seleccione una opcion")
+            setIsClicked(false)
             return;
         }  else {
-            alert("Usted selecciono " + valueInputs)
+            setValueInput(valueInputs)
+            setIsClicked(true)
         }
         
-        if(textValue.length < 5 ) {
+        
+        if(textValue.length < 5 || textValue == '') {
             Toastify({
                 text: "Verifique el mensaje, debe contener al menos 10 letras", 
                 duration: 1500,
@@ -71,14 +77,15 @@ const Form = () => {
                     background: "linear-gradient(180deg, #854dff, #dedede)",
                   },
             }).showToast();
+            setIsClicked(false)
             return;
         } 
         else {
             setTextValue(textValue)
-           
+            setIsClicked(true)
         }
 
-        if(values.name == "" || values.surname == "" || values.email == "") {
+        if(values.name == "" || values.surname == "" || values.email == undefined) {
             Toastify({
                 text: "Verifique los datos ingresados", 
                 duration: 1500,
@@ -89,13 +96,16 @@ const Form = () => {
                     background: "linear-gradient(180deg, #854dff, #dedede)",
                   },
             }).showToast();
+            setIsClicked(false)
             return;
         } else {
-            setValue(values)   
+            setValue(values)
+            setIsClicked(true)   
         }
 
         if(checkLastValue == true) {
             setCheckLastValue(checkLastValue)
+            setIsClicked(true)
         } else {
             Toastify({
                 text: "Verifique los terminos", 
@@ -107,24 +117,22 @@ const Form = () => {
                     background: "linear-gradient(180deg, #854dff, #dedede)",
                   },
             }).showToast();
+            setIsClicked(false)
             return;
-        }     
+        }
+        return true;     
       
     }
-
-    const resetResults = () => {
-        setTextValue('');       
-    };
+    
 
     return (
-        <form onSubmit={handleSubmit}  >
+        <form onSubmit={handleSubmit} className="form" >
             <h1>Contact Us</h1>
             <Dates 
             label="First Name"
             name="name"  
             type="text"
             onChangeEvent= {handleEventChange}
-            required
             />
             <Dates
             label="Last Name"
@@ -156,8 +164,11 @@ const Form = () => {
             onValueInput={handleEventCheckedInput}
             />
             
-            <Button onClick={handleSubmit}/>
-    
+            <Button 
+            onClick={handleSubmit} 
+            />
+
+            {isClicked && <Profile datosPersonales={values} textMessage={textValue}/> }
         </form>
     )
 }
