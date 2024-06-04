@@ -10,3 +10,8 @@ button{
     font-family: 'Karla-Italic';
     background-color: rgb(46, 151, 114);
 }
+
+button:hover{
+    background-color: rgb(76, 193, 152);
+    cursor: pointer;
+}

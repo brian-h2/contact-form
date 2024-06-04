@@ -19,3 +19,12 @@
     margin-left: 12px ;
 }
 
+.query .query-options:hover{
+    border: 1px solid rgb(3, 136, 89);
+    background-color: rgb(200, 240, 226);
+}
+
+.query .query-options input:hover{
+    cursor: pointer;
+}
+

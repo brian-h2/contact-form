@@ -128,48 +128,52 @@ const Form = () => {
     return (
         <form onSubmit={handleSubmit} className="form" >
             <h1>Contact Us</h1>
-            <Dates 
-            label="First Name"
-            name="name"  
-            type="text"
-            onChangeEvent= {handleEventChange}
-            />
-            <Dates
-            label="Last Name"
-            name="surname"  
-            type="text" 
-            onChangeEvent= {handleEventChange}
-            />
-            <Dates 
-            label = "Email Address"
-            name="email"
-            type="text" 
-            onChangeEvent= {handleEventChange}
-            />
+                <div className="form-components">
+                    <Dates 
+                    label="First Name"
+                    name="name"  
+                    type="text"
+                    onChangeEvent= {handleEventChange}
+                    />
+                    <Dates
+                    label="Last Name"
+                    name="surname"  
+                    type="text" 
+                    onChangeEvent= {handleEventChange}
+                    />
+                    <Dates 
+                    label = "Email Address"
+                    name="email"
+                    type="text" 
+                    onChangeEvent= {handleEventChange}
+                    />
 
-            <Query
-            label="General Enquiry"
-            type="radio"
-            onValueChecked= {handleEventChecked}
-            />
+                    <Query
+                    label="General Enquiry"
+                    type="radio"
+                    onValueChecked= {handleEventChecked}
+                    />
 
-            <Message 
-            label = "Message"
-            onChangeTextArea={handleEventTextArea}
-            />
+                    <Message 
+                    label = "Message"
+                    onChangeTextArea={handleEventTextArea}
+                    />
 
-            <ValueInput 
-            label="I consent to being contacted by the team"
-            type= "checkbox"
-            onValueInput={handleEventCheckedInput}
-            />
-            
-            <Button 
-            onClick={handleSubmit} 
-            />
+                    <ValueInput 
+                    label="I consent to being contacted by the team"
+                    type= "checkbox"
+                    onValueInput={handleEventCheckedInput}
+                    />
+                    
+                    <Button 
+                    onClick={handleSubmit} 
+                    />
 
-            {isClicked && <Profile datosPersonales={values} textMessage={textValue}/> }
+                    {isClicked && <Profile datosPersonales={values} textMessage={textValue}/> }
+                </div>
         </form>
+       
+        
     )
 }
 

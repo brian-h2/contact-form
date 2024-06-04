@@ -17,7 +17,7 @@ const Dates = ({label, name, type, onChangeEvent}) =>  {
     return (
         <div className="box-dates">
             <label>{label} *</label>
-            <input type={type} value={value} name={name} onChange={handleEvenSubmit}/>
+            <input className='input-text' type={type} value={value} name={name} onChange={handleEvenSubmit}/>
         </div>
     )
 }

@@ -6,11 +6,7 @@ const Message = ({label, onChangeTextArea}) => {
 
     const handleEventText = (e) => {
         setText(e.target.value)
-        if(text == "") {
-            alert("Escriba un mensaje")
-        } else {
-            onChangeTextArea({text})
-        }
+        onChangeTextArea({text})
     }
 
     return (
