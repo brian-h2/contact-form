@@ -5,8 +5,10 @@
     font-family: 'Karla-Static';
 }
 
-
-
+html{
+    background-color: rgb(205, 249, 234);
+    
+}
 
 @font-face {
     font-family: 'Karla-Static';

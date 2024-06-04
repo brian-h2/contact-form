@@ -1,6 +1,7 @@
 .terms-conditions{
     display: flex;
     flex-direction: row-reverse;
+    justify-content: start;
     margin: 15px 0px;
 }
 

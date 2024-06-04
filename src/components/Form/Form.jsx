@@ -129,24 +129,31 @@ const Form = () => {
         <form onSubmit={handleSubmit} className="form" >
             <h1>Contact Us</h1>
                 <div className="form-components">
-                    <Dates 
-                    label="First Name"
-                    name="name"  
-                    type="text"
-                    onChangeEvent= {handleEventChange}
-                    />
-                    <Dates
-                    label="Last Name"
-                    name="surname"  
-                    type="text" 
-                    onChangeEvent= {handleEventChange}
-                    />
-                    <Dates 
-                    label = "Email Address"
-                    name="email"
-                    type="text" 
-                    onChangeEvent= {handleEventChange}
-                    />
+                    <div className="form-components-date">
+                        <Dates 
+                        label="First Name"
+                        name="name"  
+                        type="text"
+                        onChangeEvent= {handleEventChange}
+                    
+                        />
+                        <Dates
+                        label="Last Name"
+                        name="surname"  
+                        type="text" 
+                        onChangeEvent= {handleEventChange}
+                        />  
+                    </div>
+                    <div className="form-components-date-email">
+                        <Dates 
+                        label = "Email Address"
+                        name="email"
+                        type="text" 
+                        onChangeEvent= {handleEventChange}
+                        className="form-components-date-email"
+                        />
+                    </div>
+                    
 
                     <Query
                     label="General Enquiry"

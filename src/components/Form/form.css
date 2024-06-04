@@ -1,6 +1,6 @@
 .form{
-    max-width: 1200px;
-    margin: 12px;
+    max-width: 800px;
+    margin: 52px 40px;
     padding: 22px;
     border-radius: 12px;
     background-color: rgb(255, 255, 255);
@@ -8,6 +8,48 @@
     color: rgb(59, 68, 64);
 }
 
+.form-components-date{
+    padding-right: 21px;
+}
+
+.form-components-date-email{
+    padding-right: 21px;
+}
+
+@media (min-width: 800px) {
+    .form-components-date{
+        display: flex;
+        justify-content: space-evenly;  
+        gap: 30px;
+        max-width: 1200px;
+        padding-right: 8px;
+    }
+
+    .form-components-date-email{
+       
+        max-width: 1200px;
+        padding-right: 8px;
+    }
+
+    .form-components-date-email input{
+        width: 98%;
+    }
+}
+
+@media (min-width: 921px) {
+    .form{
+        margin: 32px auto;
+    }
+}
+
+@media (min-width: 1200px) {
+    .form{
+        margin: 32px auto;
+    }
+
+    
+
+}
 
 
 
