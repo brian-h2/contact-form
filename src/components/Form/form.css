@@ -6,6 +6,14 @@
     background-color: rgb(255, 255, 255);
     font-family: 'Karla-Static';
     color: rgb(59, 68, 64);
+    
+}
+
+.form-components-profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
 .form-components-date{

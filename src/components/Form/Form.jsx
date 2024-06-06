@@ -16,9 +16,6 @@ const Form = () => {
     const [valueInputName,setValueInput] = useState({})
     const [textValue, setTextValue] = useState('')
     const [checkLastValue, setCheckLastValue] = useState()
-    
-    //Generamos encuadres cuando una caja se selecciona
-    //Revisar que mensaje se muestra aunque esta vacio
 
     const handleEventChange = ({ name, value }) => {
         setValue({
@@ -48,7 +45,7 @@ const Form = () => {
     //Evaluate Inputs
     const handleSubmit = (e) => {
         e.preventDefault()
-        evaluateInputs() ? alert("Mensaje enviado correctamente") : false
+        evaluateInputs() ? true : false
     }
 
     const evaluateInputs = () => {
@@ -175,8 +172,9 @@ const Form = () => {
                     <Button 
                     onClick={handleSubmit} 
                     />
-
-                    {isClicked && <Profile datosPersonales={values} textMessage={textValue}/> }
+                    <div className="form-components-profile">
+                        {isClicked && <Profile datosPersonales={values} textMessage={textValue}/> }
+                    </div>
                 </div>
         </form>
        

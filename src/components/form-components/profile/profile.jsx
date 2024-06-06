@@ -1,15 +1,24 @@
-const Profile = ({datosPersonales, options,textMessage}) => {
+import './profile.css'
+
+const Profile = ({datosPersonales,textMessage}) => {
+
+
+    const handleEventClick = () => {
+       location.reload();
+    }
 
     return (
-        <>
-            <h1>Profile</h1>
-            <h2>First Name: {datosPersonales.name}</h2>
-            <h3>Second Name: {datosPersonales.surname}</h3>
-            <h4>Email: {datosPersonales.email}</h4>
-            <p>Mensaje: {textMessage}</p>
-        
-            
-        </>
+        <div className='profile'>
+            <h1>Dates:</h1>
+            <div className='profile-dates'>
+                <h3>First Name: {datosPersonales.name}</h3>
+                <h3>Second Name: {datosPersonales.surname}</h3>
+                <h4>Email: {datosPersonales.email}</h4>
+                <p>Message: {textMessage}</p>
+               
+            </div>
+            <button onClick={handleEventClick}className='btn-restore'>Restore</button>
+        </div>
     )
 }
 

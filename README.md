@@ -1,8 +1,18 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Form-Contact
 
-Currently, two official plugins are available:
+![Descripción de la imagen](/src/design/desktop-preview.jpg)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+#### Creacion de un formulario con estilos simples pero integrando React, sobre Vite y deploy en Vercel
+
+___
+
+- ### Features
+
+
+- Uso de Hooks (UseSate)
+- Validacion de formularios
+- Control automatico de los inputs
+- Manejo de renderizado condicional
+- Agregado de animacion con CSS
+- Diseño Responsive
